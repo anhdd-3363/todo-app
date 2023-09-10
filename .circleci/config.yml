@@ -9,12 +9,9 @@ jobs:
       - run: npm install eslint@8.48.0 # install dependencies
       - run: npx eslint .
           --config .eslintrc.js
-          --ext .js,.jsx,.ts,.tsx # run the eslint command
+          --ext .js,.vue # run the eslint command
 
 workflows:
   my-workflow:
     jobs:
-      - eslint:
-          filters:
-            branches:
-              only: master
+      - eslint
