@@ -1,20 +1,14 @@
 version: 2.1
 
 jobs:
-  check:
-    docker: 
-      - image: circleci/node:18.17.1
+  hello-job:
+    docker:
+      - image: cimg/node:17.2.0 # the primary container, where your job's commands are run
     steps:
-      - checkout
-      - run: npm install eslint@8.10.0
-      - run: npx eslint .
-          --config .eslintrc.js
-          --ext .js,.vue
+      - checkout # check out the code in the project directory
+      - run: echo "hello world" # run the `echo` command
 
 workflows:
-  eslint:
+  my-workflow:
     jobs:
-      - check:
-          filters:
-            branches:
-              only: master
+      - hello-job
