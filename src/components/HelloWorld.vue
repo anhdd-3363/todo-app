@@ -5,6 +5,9 @@ defineProps({
     required: true
   }
 })
+return {
+  msg
+}
 </script>
 
 <template>
